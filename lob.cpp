@@ -17,8 +17,8 @@ public:
 
     BookSide(bool is_bid)
         : levels(is_bid
-            ? function<bool(double,double)>([](double a, double b){ return a > b; }) // highest first
-            : function<bool(double,double)>([](double a, double b){ return a < b; }) // lowest first
+            ? function<bool(double,double)>([](double a, double b){ return a > b; }) 
+            : function<bool(double,double)>([](double a, double b){ return a < b; }) 
         ) {}
 
     void add_order(const Order& o) {
@@ -87,8 +87,6 @@ public:
             match_buy(incoming);
         else
             match_sell(incoming);
-
-        // market orders do NOT rest → no indexing needed
     }
 
     void cancel_order(long long id) {
